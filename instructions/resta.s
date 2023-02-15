@@ -8,7 +8,7 @@
 	.eabi_attribute 30, 6
 	.eabi_attribute 34, 0
 	.eabi_attribute 18, 4
-	.file	"sum.c"
+	.file	"resta.c"
 	.text
 	.align	2
 	.global	main
@@ -23,17 +23,14 @@ main:
 	str	fp, [sp, #-4]!
 	add	fp, sp, #0
 	sub	sp, sp, #20
-	mov	r3, #0
+	mov	r3, #10
 	str	r3, [fp, #-16]
-
-	mov	r3, #1
+	mov	r3, #9
 	str	r3, [fp, #-12]
-
 	ldr	r2, [fp, #-16]
 	ldr	r3, [fp, #-12]
-	add	r3, r2, r3
+	sub	r3, r2, r3
 	str	r3, [fp, #-8]
-	
 	mov	r3, #0
 	mov	r0, r3
 	add	sp, fp, #0

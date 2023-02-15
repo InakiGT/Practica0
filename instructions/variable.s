@@ -25,6 +25,7 @@ main:
 	sub	sp, sp, #12
 	mov	r3, #51
 	str	r3, [fp, #-8]
+	
 	mov	r3, #0
 	mov	r0, r3
 	add	sp, fp, #0
