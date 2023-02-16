@@ -8,7 +8,7 @@
 	.eabi_attribute 30, 6
 	.eabi_attribute 34, 0
 	.eabi_attribute 18, 4
-	.file	"equal.c"
+	.file	"notequal.c"
 	.text
 	.align	2
 	.global	main
@@ -23,7 +23,6 @@ main:
 	str	fp, [sp, #-4]!
 	add	fp, sp, #0
 	sub	sp, sp, #20
-
 	mov	r3, #0
 	str	r3, [fp, #-16]
 	mov	r3, #1
@@ -31,9 +30,8 @@ main:
 
 	ldr	r2, [fp, #-16]
 	ldr	r3, [fp, #-12]
-
 	cmp	r2, r3
-	bne	.L2
+	beq	.L2
 	
 	ldr	r2, [fp, #-12]
 	ldr	r3, [fp, #-16]

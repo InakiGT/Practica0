@@ -8,7 +8,7 @@
 	.eabi_attribute 30, 6
 	.eabi_attribute 34, 0
 	.eabi_attribute 18, 4
-	.file	"equal.c"
+	.file	"gratherequal.c"
 	.text
 	.align	2
 	.global	main
@@ -33,7 +33,7 @@ main:
 	ldr	r3, [fp, #-12]
 
 	cmp	r2, r3
-	bne	.L2
+	blt	.L2
 	
 	ldr	r2, [fp, #-12]
 	ldr	r3, [fp, #-16]

@@ -8,7 +8,7 @@
 	.eabi_attribute 30, 6
 	.eabi_attribute 34, 0
 	.eabi_attribute 18, 4
-	.file	"equal.c"
+	.file	"ifor.c"
 	.text
 	.align	2
 	.global	main
@@ -25,18 +25,24 @@ main:
 	sub	sp, sp, #20
 
 	mov	r3, #0
-	str	r3, [fp, #-16]
+	str	r3, [fp, #-20]
 	mov	r3, #1
+	str	r3, [fp, #-16]
+	mov	r3, #2
 	str	r3, [fp, #-12]
 
-	ldr	r2, [fp, #-16]
-	ldr	r3, [fp, #-12]
+	ldr	r2, [fp, #-20]
+	ldr	r3, [fp, #-16]
 
 	cmp	r2, r3
-	bne	.L2
-	
-	ldr	r2, [fp, #-12]
-	ldr	r3, [fp, #-16]
+	ble	.L2
+	ldr	r2, [fp, #-20]
+	ldr	r3, [fp, #-12]
+	cmp	r2, r3
+	bge	.L2
+
+	ldr	r2, [fp, #-16]
+	ldr	r3, [fp, #-20]
 	add	r3, r2, r3
 	str	r3, [fp, #-8]
 .L2:

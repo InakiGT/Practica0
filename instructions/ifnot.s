@@ -8,7 +8,7 @@
 	.eabi_attribute 30, 6
 	.eabi_attribute 34, 0
 	.eabi_attribute 18, 4
-	.file	"equal.c"
+	.file	"ifnot.c"
 	.text
 	.align	2
 	.global	main
@@ -17,27 +17,22 @@
 	.fpu softvfp
 	.type	main, %function
 main:
-	@ args = 0, pretend = 0, frame = 16
+	@ args = 0, pretend = 0, frame = 8
 	@ frame_needed = 1, uses_anonymous_args = 0
 	@ link register save eliminated.
 	str	fp, [sp, #-4]!
 	add	fp, sp, #0
-	sub	sp, sp, #20
+	sub	sp, sp, #12
 
 	mov	r3, #0
-	str	r3, [fp, #-16]
-	mov	r3, #1
 	str	r3, [fp, #-12]
 
-	ldr	r2, [fp, #-16]
 	ldr	r3, [fp, #-12]
 
-	cmp	r2, r3
+	cmp	r3, #0
 	bne	.L2
 	
-	ldr	r2, [fp, #-12]
-	ldr	r3, [fp, #-16]
-	add	r3, r2, r3
+	ldr	r3, [fp, #-12]
 	str	r3, [fp, #-8]
 .L2:
 	mov	r3, #0
