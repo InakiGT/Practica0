@@ -8,7 +8,7 @@
 	.eabi_attribute 30, 6
 	.eabi_attribute 34, 0
 	.eabi_attribute 18, 4
-	.file	"resta.c"
+	.file	"xor.c"
 	.text
 	.align	2
 	.global	main
@@ -23,15 +23,17 @@ main:
 	str	fp, [sp, #-4]!
 	add	fp, sp, #0
 	sub	sp, sp, #20
-	
-	mov	r3, #10
+
+	mov	r3, #0
 	str	r3, [fp, #-16]
-	mov	r3, #9
+	mov	r3, #1
 	str	r3, [fp, #-12]
+
 	ldr	r2, [fp, #-16]
 	ldr	r3, [fp, #-12]
-	sub	r3, r2, r3
+	eor	r3, r3, r2
 	str	r3, [fp, #-8]
+	
 	mov	r3, #0
 	mov	r0, r3
 	add	sp, fp, #0
